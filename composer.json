@@ -1,0 +1,29 @@
+{
+    "name": "prelinker/zmq-monolog-handler",
+    "description": "Monolog handler for ZMQ",
+    "keywords": ["monlog", "logger", "zmq"],
+    "homepage": "http://github.com/prelinker/zmq-monolog-handler",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Laurent Goussard",
+            "email": "laurent.goussard@prelinker.com",
+            "homepage": "http://www.prelinker.com"
+        },
+        {
+            "name": "Mathieu Rochette",
+            "email": "mathieu.rochette@prelinker.com",
+            "homepage": "http://www.prelinker.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {"Prelinker\\Monolog\\": "src/"}
+    },
+    "require": {
+         "monolog/monolog": "~1.7"
+    }
+}
