@@ -24,6 +24,7 @@ class EZQHandler extends ZMQHandler
     public function __construct($dsn, $level = Logger::DEBUG, $bubble = true)
     {
         $zmqsocket = new \ZMQSocket(new \ZMQContext(), \ZMQ::SOCKET_PUSH, 'MonologEZQSocketHandler');
+        $zmqsocket->setSockOpt(\ZMQ::SOCKOPT_LINGER, 1000);
         $zmqsocket->connect($dsn);
 
         parent::__construct($zmqsocket, $level, $bubble);
