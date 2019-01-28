@@ -33,16 +33,20 @@ class EZQFormatter extends NormalizerFormatter
         }
 
         $ez_formatted = array(
-            "type" => "logs",
-            "logs" => array(
-                "host"     => gethostname(),
-                "priority" => $record['level'],
-                "level"    => $record['level_name'],
-                "datetime" => $record['datetime']->format('Y-m-d H:i:s'),
-                "program"  => $record['channel'],
-                "msg"      => $record['message']
+            'type' => 'logs',
+            'logs' => array(
+                'host' => gethostname(),
+                'priority' => $record['level'],
+                'level' => $record['level_name'],
+                'datetime' => $record['datetime']->format('Y-m-d H:i:s'),
+                'program' => $record['channel'],
+                'msg' => $record['message']
             )
         );
+
+        if (isset($record['ttl'])) {
+            $ez_formatted['logs']['ttl'] = $record['ttl'];
+        }
 
         return json_encode($ez_formatted);
     }
